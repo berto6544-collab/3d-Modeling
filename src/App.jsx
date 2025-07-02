@@ -25,7 +25,7 @@ function App() {
   const [userid, setuserId] = React.useState(0);
   const [theme, setTheme] = React.useState("light");
   const [activeTab, setActiveTab] = useState('Home');
-  const [isLoaded, setLoaded] = useState(false);
+  const [isLoaded, setLoaded] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
  const sidebarItems = [
      { icon: Home, label: 'Home', active: true, link:'/feed' },
@@ -42,30 +42,10 @@ function App() {
 
   React.useEffect(() => {
     
-    
-    if(token == '')return setLoaded(true);
+   setLoaded(true);
     
     // Connect using your HTTPS domain
    
-
-
-
-
-
-    fetch(apiUrl+'/userData',{
-      method:'GET',
-      headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer '+token+''
-    },
-
-    }).then(res=>res.json())
-    .then(response=>{
-      setLoaded(true)
-      if(response.length == 0)return
-      
-      setUserData(response)
-    });
    
   }, []);
 
